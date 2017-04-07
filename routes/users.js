@@ -21,7 +21,9 @@ router.post('/authenticate', function(req, res, next) {
 router.get('/profile', passport.authenticate('jwt', { session: false }), function(req, res, next) {
     res.json({ user: req.user });
 });
-
+router.get('/allstars', function(req, res, next) {
+    controller.allStars(req, res, next);
+});
 router.get('/validate', function(req, res, next) {
     res.send('VALIDATE');
 });

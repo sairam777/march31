@@ -1,0 +1,18 @@
+img {
+    height: 100px;
+    width: 100px;
+}
+
+table,
+th,
+tr,
+td {
+    border: 2px solid black;
+    width: 70px;
+}
+
+td {
+    border: 2px solid;
+    text-align: center;
+    width: 50px;
+}

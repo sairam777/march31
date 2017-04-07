@@ -1,3 +1,67 @@
-<p>
-  register works!
-</p>
+<div class="container" id="wrap">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form (submit)="onRegisterSubmit(user)" novalidate #registerForm='ngForm' class="form">
+                <legend>Sign Up</legend>
+                <h4>Fill all the fileds to signup....</h4>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="firstname" #firstname='ngModel' [(ngModel)]="user.firstname" value="" class="form-control input-lg" placeholder="First Name" required/> </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="lastname" #lastname='ngModel' [(ngModel)]="user.lastname" value="" class="form-control input-lg" placeholder="Last Name" required/> </div>
+                </div>
+                <input type="text" name="email" [(ngModel)]="user.email" #email='ngModel' class="form-control input-lg" placeholder="Your Email" required />
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="username" [(ngModel)]="user.username" #username='ngModel' placeholder="User name" class="form-control input-lg" required/>
+                    </div>
+                    <div class="col-xs-6 col-md-6">
+                        <select (change)="selectedstar($event)" class="form-control input-lg">
+                      <option value="" selected disabled>Star Category</option>
+                      <option value="Universal Star">Universal Star</option>
+                      <option value="Inno Star">Inno Star</option>
+                      <option value="Supreme Star">Supreme Star</option>
+                      <option value="Rebel Star">Rebel Star</option>
+                      <option value="Stylish Star">Stylish Star</option>
+                      <option value="Power Star">Power Star</option>
+                      <option value="Boiling Star">Boiling Star</option>
+                      <option value="Sudden Star">Sudden Star</option>
+                      <option value="Super Star">Super Star</option>
+                      <option value="Natural Star">Natural Star</option>
+                      <option value="Mega Star">Mega Star</option>
+                      <option value="Burning Star">Burning Star</option>
+
+                  </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <input type="password" [(ngModel)]="user.password" name="password" #password='ngModel' class="form-control input-lg" placeholder="Password" required /></div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="password" [(ngModel)]="user.cnfpassword"  name="confirm_password" #cnfpassword='ngModel' class="form-control input-lg" placeholder="Confirm Password" required /></div>
+                  
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="mobile" [(ngModel)]="user.mobile" #mobile='ngModel' class="form-control input-lg" placeholder="Mobile number" required/> </div>
+                    <div class="col-xs-6 col-md-6">
+                        <input type="text" name="empid" [(ngModel)]="user.empid" #empid='ngModel' class="form-control input-lg" placeholder="Emp Code" required /> </div>
+                </div>
+
+                <label>Birth Date:</label>
+                <input type="date" name="dob" [(ngModel)]="user.dob" #dob='ngModel' class="form-control input-lg" />
+
+                <label>Gender : </label>
+                <input type="radio" name="gender" value="Male" [(ngModel)]="user.gender" required #gender="ngModel">Male
+                <input type="radio" name="gender" value="Female" [(ngModel)]="user.gender" required #gender="ngModel">Female
+                <div>
+                    <input type="file" (change)="fileChange($event)" placeholder="Upload file" required>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit" [disabled]='!registerForm.form.valid'>
+                            Create my account</button>
+
+
+            </form>
+        </div>
+    </div>
+</div>

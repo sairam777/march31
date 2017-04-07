@@ -1,3 +1,4 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +13,12 @@ import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import {ModuleWithProviders} from '@angular/core';
 import {routing} from './app.routing';
+import {ValidateService} from './services/validate.service';
+import {AuthServiceService} from './services/auth-service.service';
+import { FlashMessagesModule } from 'angular2-flash-messages/module';
+import { AuthGuard } from './guards/auth.guard';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+
 
 @NgModule({
   declarations: [
@@ -21,16 +28,21 @@ import {routing} from './app.routing';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    AboutusComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule,
-    routing
+    FlashMessagesModule,
+    routing,
+
+
+
   ],
-  providers: [],
+  providers: [ValidateService,AuthServiceService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

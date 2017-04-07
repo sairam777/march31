@@ -1,3 +1,22 @@
-<p>
-  profile works!
-</p>
+<div *ngIf="user">
+    <h2 class="page-header">{{user.firstname}}
+        <span><img src="{{user.image}}" ></span></h2>
+
+    <table>
+        <tr>
+            <th>Star</th>
+            <th>User name</th>
+            <th>Email</th>
+            <th>Mobile No</th>
+            <th>Date Of Birth</th>
+        </tr>
+        <tr>
+            <td>{{user.star}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.mobile}}</td>
+            <td>{{user.dob | date: 'dd/MM/yyyy'}}</td>
+
+        </tr>
+    </table>
+</div>
