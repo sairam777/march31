@@ -29,19 +29,19 @@ var headers=new Headers();
 this.loadToken();
 headers.append('Authorization',this.authToken);
 headers.append('Content-Type','application/json');
-return this.http.get('http://localhost:3000/users/profile',{headers:headers}).map(res=>res.json());
+return this.http.get('users/profile',{headers:headers}).map(res=>res.json());
 
 }
 authUser(user){
   var headers=new Headers();
 headers.append('Content-Type','application/json');
-return this.http.post('http://localhost:3000/users/authenticate',user,{headers:headers}).map(res=>res.json());
+return this.http.post('users/authenticate',user,{headers:headers}).map(res=>res.json());
 }
 
 allStars(){
   var headers=new Headers();
 headers.append('Content-Type','application/json');
-return this.http.get('http://localhost:3000/users/allstars',{headers:headers}).map(res=>res.json());
+return this.http.get('users/allstars',{headers:headers}).map(res=>res.json());
 }
 
 
